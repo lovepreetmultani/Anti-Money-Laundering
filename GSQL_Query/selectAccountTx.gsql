@@ -1,0 +1,16 @@
+CREATE QUERY selectAccountTx(STRING acct) FOR GRAPH test_graph_New { 
+  ListAccum<EDGE> @@txSend, @@txRecieve;
+  seed = {Account.*};
+ 
+  SendTx = SELECT tgt FROM seed:s -(SEND_TRANSACTION:e)-> Transaction:tgt
+           WHERE s.id == acct
+           ACCUM @@txSend +=  e
+            LIMIT 5;
+ 
+  RecieveTx = SELECT tgt FROM seed:s -(reverse_RECEIVE_TRANSACTION:e)-> Transaction:tgt
+              WHERE s.id == acct
+              ACCUM @@txRecieve += e
+              LIMIT 5;
+ 
+  PRINT @@txSend, @@txRecieve; 
+}

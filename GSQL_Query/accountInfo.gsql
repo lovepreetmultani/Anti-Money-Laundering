@@ -1,0 +1,10 @@
+CREATE QUERY accountInfo(INT limit_x) FOR GRAPH test_graph_New { 
+ 
+  Seed = {Account.*};
+  
+  S3 = SELECT a FROM Seed:a 
+         LIMIT limit_x;
+  
+  PRINT S3; 
+  
+}
