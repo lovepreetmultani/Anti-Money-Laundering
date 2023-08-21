@@ -1,1 +1,1 @@
-### Anti-Money-Laundering using Deep Learning and TigerGraph Studio
+### Anti-Money-Laundering using Data Science Techniques with machine learning and Deep Learning. For a graphical representation of data using and links among different patterns using TigerGraph Studio
